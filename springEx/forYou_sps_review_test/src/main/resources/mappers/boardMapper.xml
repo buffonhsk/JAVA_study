@@ -60,7 +60,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			tb.price as tboard_price,
 	        tb.userMember_mNo as userMember_mNo,
 			tb.contents as tboard_contents,
-			tb.regdate as tboard_regdate,
+			date_format(tb.regdate, '%Y-%m-%d') as tboard_regdate,
 			tb.cnt as tboard_cnt,
 			m.mNo as member_mNo,
 			m.userid as member_id,
@@ -89,7 +89,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			tb.title as tboard_title,
 			tb.price as tboard_price,
 			tb.contents as tboard_contents,
-			tb.regdate as tboard_regdate,
+			date_format(tb.regdate, '%Y-%m-%d') as tboard_regdate,
 			tb.cnt as tboard_cnt,
 			m.mNo as member_mNo,
 			m.userid as member_id,
@@ -115,7 +115,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			tb.title as tboard_title,
 			tb.price as tboard_price,
 			tb.contents as tboard_contents,
-			tb.regdate as tboard_regdate,
+			date_format(tb.regdate, '%Y-%m-%d') as tboard_regdate,
 			tb.cnt as tboard_cnt,
 			m.mNo as member_mNo,
 			m.userid as member_id,
@@ -130,7 +130,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="listPage" resultType="TalentBoardVO">
 	 <![CDATA[
-		select id, image, title, price, contents, regdate
+		select id, image, title, price, contents, date_format(regdate, '%Y-%m-%d')
 		from user_talents where id > 0 
 		order by regdate desc
 		limit #{page}, 10
@@ -139,7 +139,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="listCriteria" resultType="TalentBoardVO">
 	 <![CDATA[
-		select id, image, title, price, contents, regdate
+		select id, image, title, price, contents, date_format(regdate, '%Y-%m-%d')
 		from user_talents where id > 0 
 		order by regdate desc
 		limit #{pageStart}, #{perPageNum}

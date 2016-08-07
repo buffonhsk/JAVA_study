@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import kr.co.choongang.domain.Criteria;
 import kr.co.choongang.domain.PageMaker;
+import kr.co.choongang.domain.SearchCriteria;
 import kr.co.choongang.service.MenuService;
 
 @Controller
@@ -26,7 +27,7 @@ public class MenuController {
 	
 	
 	@RequestMapping(value="/game", method=RequestMethod.GET)
-	public void listGame(@ModelAttribute("cri") Criteria cri, Model model) throws Exception{
+	public void listGame(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{
 		LOGGER.info(cri.toString());
 	
 		model.addAttribute("list", service.gListCriteria(cri));
@@ -39,7 +40,7 @@ public class MenuController {
 	}
 	
 	@RequestMapping(value="/design", method=RequestMethod.GET)
-	public void listDesign(@ModelAttribute("cri") Criteria cri, Model model) throws Exception{
+	public void listDesign(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{
 		LOGGER.info(cri.toString());
 	
 		model.addAttribute("list", service.dListCriteria(cri));
@@ -52,9 +53,10 @@ public class MenuController {
 	}
 	
 	@RequestMapping(value="/study", method=RequestMethod.GET)
-	public void listStudy(@ModelAttribute("cri") Criteria cri, Model model) throws Exception{
+	public void listStudy(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{
 		LOGGER.info(cri.toString());
 	
+		model.addAttribute("starList", service.sListStar(cri));
 		model.addAttribute("list", service.sListCriteria(cri));
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
@@ -65,7 +67,7 @@ public class MenuController {
 	}
 	
 	@RequestMapping(value="/music", method=RequestMethod.GET)
-	public void listMusic(@ModelAttribute("cri") Criteria cri, Model model) throws Exception{
+	public void listMusic(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{
 		LOGGER.info(cri.toString());
 	
 		model.addAttribute("list", service.mListCriteria(cri));
@@ -78,7 +80,7 @@ public class MenuController {
 	}
 	
 	@RequestMapping(value="/cook", method=RequestMethod.GET)
-	public void listCook(@ModelAttribute("cri") Criteria cri, Model model) throws Exception{
+	public void listCook(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception{
 		LOGGER.info(cri.toString());
 	
 		model.addAttribute("list", service.cListCriteria(cri));

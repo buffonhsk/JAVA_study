@@ -76,4 +76,12 @@ public class MenuServiceImpl implements MenuService {
 		return dao.cCountPaging(cri);
 	}
 
+	
+//	평점 리스트
+	@Override
+	public List<TalentBoardVO> sListStar(Criteria cri) throws Exception {
+		
+		return dao.sListStar(cri);
+	}
+
 }

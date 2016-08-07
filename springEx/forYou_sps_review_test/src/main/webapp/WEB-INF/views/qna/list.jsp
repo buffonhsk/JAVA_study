@@ -1,36 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="/resources/js/jquery-3.0.0.min.js"></script>
-<link rel="stylesheet" type="text/css" href="/resources/css/normalize.css">
-<link rel="stylesheet" type="text/css" href="/resources/css/bootstrap.min.css">
-<script type="text/javascript" src="/resources/js/bootstrap.js"></script>
-<title>QNA</title>
-</head>
-<body>
-	<button type="submit" class="createBtn" name="create" >글작성</button>
-	<c:forEach items="${list}" var="qBoardVO" varStatus="status">
-		<div class="item">
-			<ul class="list-unstyled product-info">
-			<li>${pageMaker.totalCount - ((pageMaker.startPage - 1) + status.index)}</li>
-				<a
-					href="/qna/readPage${pageMaker.makeQuery(pageMaker.cri.page)}&id=${qBoardVO.id}&userid=${qBoardVO.memberVO.userid}">
-					<li class="title">${qBoardVO.title}</li>
-					<li class="contents">${qBoardVO.contents}</li>
-					<li class="price"><span class="number">${qBoardVO.memberVO.userid}</span></li>
-				</a>
-			</ul>
-			<div class="item-wrap"></div>
+
+<%@include file="../main/header.jsp"%>
+
+<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header service">Q&A</h1>
 		</div>
+	</div>
+	
+<table class="note qna">
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>제목</th>
+				<th>작성자</th>
+				<th>작성일</th>
+			</tr>
+		</thead>
+		<c:forEach items="${list}" var="qBoardVO" varStatus="status">
+		<tbody>
+			<tr>
+				<td>${pageMaker.totalCount - ((pageMaker.startPage - 1) + status.index)}</td>
+				<td><a
+					href="/qna/readPage${pageMaker.makeQuery(pageMaker.cri.page)}&id=${qBoardVO.id}&userid=${qBoardVO.memberVO.userid}">${qBoardVO.title}</a></td>
+				<td>${qBoardVO.memberVO.userid}</td>
+				<td>${qBoardVO.regdate}</td>
+			</tr>
+		</tbody>
 	</c:forEach>
-
-
-	<div>
-		<ul class="pagiantion">
+</table>
+<div class="submit_btn">
+	<button type="submit" class="createBtn" name="create" >글작성</button>
+</div>
+	<div class="wrap_paging">
+		<ul class="pagination">
 			<c:if test="${pageMaker.prev}">
 				<li><a
 					href="list${pageMaker.makeQuery(pageMaker.startPage - 1)}">%laquo;</a></li>
@@ -58,7 +63,8 @@
 				$(".createBtn").on("click", function(){
 					self.location = "/qna/register";
 				});
-		
+				
+				$(".services").addClass("focus");
 			});
 </script>
 </body>

@@ -1,15 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript" src="/resources/js/jQuery-2.1.4.min.js"></script>
-<title>Insert title here</title>
-</head>
-<body>
 
+<%@include file="../main/header.jsp"%>
 
 	<form role="form" method="post" class="form-inline">
 		 <input name="id" type="hidden" value="${qnaVO.id}">
@@ -17,7 +10,38 @@
 		 <input name="page" type="hidden" value="${cri.page}">
 		 <input name="perPageNum" type="hidden" value="${cri.perPageNum}">
 	</form>
-		<div class="product-wrap clearfix">
+	
+	<div class="row">
+	<div class="col-lg-12 service">
+		<h1 class="page-header service">Q&A</h1>
+	</div>
+</div>
+
+	<div class="mypage-wrap board-wrap">
+		<div class="mypage-content board-default">
+
+			<div class="alert alert-hint article-title">${qnaVO.title}</div>
+
+			<ul class="article-info clearfix">
+				<li class="property">작성자</li>
+				<li class="value">${qnaVO.memberVO.userid}</li>
+				<li class="property">작성일</li>
+				<li class="value">${qnaVO.regdate}</li>
+			</ul>
+
+			<div class="article-body">
+				<pre>${qnaVO.contents}</pre>
+			</div>
+
+			<div class="article-menu text-right">
+					<button class="modify main-btn" type="submit">수정</button>
+					<button class="remove main-btn" type="submit">삭제</button>
+					<button class="listAll main-btn" type="submit">목록</button>
+			</div>
+		</div>
+	</div>
+	
+		<%-- <div class="product-wrap clearfix">
 	
 			<div class="order-info">
 				<table>
@@ -50,7 +74,7 @@
 	<table id="reviews" class="table table-bordered">
 	
 
-</table>
+</table> --%>
 	
 
 <script type="text/javascript">

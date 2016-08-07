@@ -20,6 +20,7 @@ import kr.co.choongang.domain.MemberVO;
 import kr.co.choongang.domain.NoteVO;
 import kr.co.choongang.domain.PageMaker;
 import kr.co.choongang.domain.QnaVO;
+import kr.co.choongang.domain.SearchCriteria;
 import kr.co.choongang.service.NoteService;
 import kr.co.choongang.service.QnaService;
 
@@ -35,7 +36,7 @@ public class NoteBoardController {
 	private NoteService service;
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public void listPage(@ModelAttribute("cri") Criteria cri, Model model) throws Exception {
+	public void listPage(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
 
 		LOGGER.info(cri.toString());
 
@@ -55,7 +56,7 @@ public class NoteBoardController {
 	}
 
 	@RequestMapping(value = "/readPage", method = RequestMethod.GET)
-	public void read(@RequestParam("id") int id, @RequestParam("userid") String userid, @ModelAttribute("cri") Criteria cr, Model model) throws Exception {
+	public void read(@RequestParam("id") int id, @RequestParam("userid") String userid, @ModelAttribute("cri") SearchCriteria cr, Model model) throws Exception {
 		LOGGER.info(userid);
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("id", id);
@@ -64,7 +65,7 @@ public class NoteBoardController {
 	}
 
 	@RequestMapping(value = "/removePage", method = RequestMethod.POST)
-	public String remove(@RequestParam("id") int id, Criteria cri, RedirectAttributes rttr) throws Exception {
+	public String remove(@RequestParam("id") int id, SearchCriteria cri, RedirectAttributes rttr) throws Exception {
 		LOGGER.info("id:................." +  id);
 		service.remove(id);
 		LOGGER.info("id:................." +  id);
@@ -77,7 +78,7 @@ public class NoteBoardController {
 	}
 
 	@RequestMapping(value = "/modifyPage", method = RequestMethod.GET)
-	public void modifyPageGET(int id, String userid,@ModelAttribute("cri") Criteria cri, Model model) throws Exception {
+	public void modifyPageGET(int id, String userid,@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
 
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("id", id);
@@ -86,7 +87,7 @@ public class NoteBoardController {
 	}
 
 	@RequestMapping(value = "/modifyPage", method = RequestMethod.POST)
-	public String modifyPagePOST(NoteVO nBoard, Criteria cri, RedirectAttributes rttr, HttpServletRequest request) throws Exception {
+	public String modifyPagePOST(NoteVO nBoard, SearchCriteria cri, RedirectAttributes rttr, HttpServletRequest request) throws Exception {
 
 		LOGGER.info(cri.toString());
 

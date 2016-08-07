@@ -6,7 +6,7 @@ public class RecomVO {
 
 	private int id;
 	private String title;
-	private Date regdate;
+	private String regdate;
 	private MemberVO memberVO;
 
 	public int getId() {
@@ -25,11 +25,11 @@ public class RecomVO {
 		this.title = title;
 	}
 
-	public Date getRegdate() {
+	public String getRegdate() {
 		return regdate;
 	}
 
-	public void setRegdate(Date regdate) {
+	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
 

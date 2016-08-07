@@ -13,12 +13,21 @@ public class TalentBoardVO {
 	private String title;
 	private int price;
 	private String contents;
-	private Date regdate;
+	private String regdate;
 	private MemberVO memberVO;
 	private int cnt;
 	private CatalogVO catalogVO;
 	private String imageName;
+	private int avgStar;
 	
+	public int getAvgStar() {
+		return avgStar;
+	}
+
+	public void setAvgStar(int avgStar) {
+		this.avgStar = avgStar;
+	}
+
 	public MultipartFile getImage_1() {
 		return image_1;
 	}
@@ -59,11 +68,11 @@ public class TalentBoardVO {
 		this.contents = contents;
 	}
 
-	public Date getRegdate() {
+	public String getRegdate() {
 		return regdate;
 	}
 
-	public void setRegdate(Date regdate) {
+	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
 
@@ -91,11 +100,13 @@ public class TalentBoardVO {
 		this.catalogVO = catalogVO;
 	}
 
+	
+
 	@Override
 	public String toString() {
-		return "TalentBoardVO [id=" + id + ", imageName=" + imageName + ", title=" + title + ", price=" + price + ", contents="
-				+ contents + ", regdate=" + regdate + ", memberVO=" + memberVO + ", cnt=" + cnt + ", catalogVO="
-				+ catalogVO + "]";
+		return "TalentBoardVO [id=" + id + ", image_1=" + image_1 + ", image=" + image + ", title=" + title + ", price="
+				+ price + ", contents=" + contents + ", regdate=" + regdate + ", memberVO=" + memberVO + ", cnt=" + cnt
+				+ ", catalogVO=" + catalogVO + ", imageName=" + imageName + ", avgStar=" + avgStar + "]";
 	}
 
 	public String getImageName() {

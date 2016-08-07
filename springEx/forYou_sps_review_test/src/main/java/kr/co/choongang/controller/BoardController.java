@@ -1,20 +1,9 @@
 package kr.co.choongang.controller;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.util.HashMap;
-import java.util.Iterator;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,13 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.choongang.domain.Criteria;
@@ -195,4 +181,18 @@ public class BoardController {
 		return "redirect:/board/listPage";
 		
 	}
+	
+	
+	@RequestMapping(value="/avgStar", method=RequestMethod.POST)
+	@ResponseBody
+	public void avgStarPOST(@RequestParam("id") int id, @RequestParam("avgStar") int avgStar ) throws Exception {
+		
+		LOGGER.info("avgStarPOST................");
+		System.out.println(" id" + id); 
+		System.out.println("avgStar" + avgStar);
+		
+//		service.modify(vo);
+		
+	}
+	
 }

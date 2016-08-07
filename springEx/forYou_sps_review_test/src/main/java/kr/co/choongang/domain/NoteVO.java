@@ -7,7 +7,7 @@ public class NoteVO {
 	private int id;
 	private String title;
 	private String contents;
-	private Date regdate;
+	private String regdate;
 	private MemberVO memberVO;
 
 	public int getId() {
@@ -34,11 +34,11 @@ public class NoteVO {
 		this.contents = contents;
 	}
 
-	public Date getRegdate() {
+	public String getRegdate() {
 		return regdate;
 	}
 
-	public void setRegdate(Date regdate) {
+	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
 

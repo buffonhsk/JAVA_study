@@ -7,7 +7,7 @@ public class ReviewVO {
 	private int id;
 	private String comment;
 	private int starCount;
-	private Date regdate;
+	private String regdate;
 	private MemberVO memberVO;
 	private TalentBoardVO talentBoardVO;
 
@@ -35,11 +35,11 @@ public class ReviewVO {
 		this.starCount = starCount;
 	}
 
-	public Date getRegdate() {
+	public String getRegdate() {
 		return regdate;
 	}
 
-	public void setRegdate(Date regdate) {
+	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
 

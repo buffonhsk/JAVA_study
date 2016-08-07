@@ -78,4 +78,12 @@ public class MenuDAOImpl implements MenuDAO {
 		return session.selectOne(namespace + ".cCountPaging", cri);
 	}
 
+//	평점 리스트
+	
+	@Override
+	public List<TalentBoardVO> sListStar(Criteria cri) throws Exception {
+		
+		return session.selectList(namespace + ".sListStar", cri);
+	}
+
 }

@@ -7,7 +7,7 @@ public class QnaVO {
 	private int id;
 	private String title;
 	private String contents;
-	private Date regdate;
+	private String regdate;
 	private MemberVO memberVO;
 
 	
@@ -48,13 +48,13 @@ public class QnaVO {
 
 
 
-	public Date getRegdate() {
+	public String getRegdate() {
 		return regdate;
 	}
 
 
 
-	public void setRegdate(Date regdate) {
+	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
 

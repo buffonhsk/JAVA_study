@@ -22,9 +22,10 @@ import kr.co.choongang.service.ReviewService;
 @Controller
 @RequestMapping("/reviews")
 public class ReviewController {
-	
+
 	@Inject
 	private ReviewService service;
+
 	
 	//댓글 등록
 	@RequestMapping(value="", method=RequestMethod.POST)
@@ -36,6 +37,7 @@ public class ReviewController {
 		ResponseEntity<String> entity = null;
 		
 		try {
+			
 			service.addReview(vo);
 			entity = new ResponseEntity<String>("success", HttpStatus.OK);
 		} catch (Exception e) {

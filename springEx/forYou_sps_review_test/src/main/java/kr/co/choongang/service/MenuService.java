@@ -27,4 +27,7 @@ public interface MenuService {
 
 	public int cCountPaging(Criteria cri) throws Exception;
 
+//	평점 리스트
+	public List<TalentBoardVO> sListStar(Criteria cri) throws Exception;
+
 }

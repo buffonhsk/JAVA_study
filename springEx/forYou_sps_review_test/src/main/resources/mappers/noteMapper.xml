@@ -40,7 +40,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	        n.id as note_id,
 			n.title as note_title,
 			n.contents as note_contents,
-			n.regdate as note_regdate,
+			date_format(n.regdate, '%Y-%m-%d') as note_regdate,
 			n.userMember_mNo as userMember_mNo,
 			m.mNo as member_mNo,
 			m.userid as member_id,
@@ -68,7 +68,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			n.id as note_id,
 			n.title as note_title, 
 			n.contents as note_contents, 
-			n.regdate as note_regdate, 
+			date_format(n.regdate, '%Y-%m-%d') as note_regdate, 
 			m.userid as member_id
 		from user_note as n
 		inner join userMember m

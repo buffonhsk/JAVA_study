@@ -7,7 +7,7 @@
 
 	<%@include file="../main/header.jsp"%>
 
-		<!-- <article>
+		<article>
 			<h2>신규재능</h2>
 				<div class="item-box1">
 					
@@ -32,7 +32,7 @@
 				alert("회원 가입 되었습니다.");
 			}
 
-			var formObj = $("form[role='form']");
+			/* var formObj = $("form[role='form']");
 
 			console.log(formObj);
 
@@ -50,7 +50,7 @@
 			$(".listAll").on("click", function() {
 				self.location = "/main/maiPage";
 			});
-			
+			 */
 			var str = "";
 			
 			$.ajax({
@@ -94,5 +94,5 @@
 			$(".item-box1").html(str);
 			
 		});
-	</script> -->
+	</script> 
 <%-- <%@include file="../main/footer.jsp"%> --%>
